@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>temp-cal</title>
+
+    <style>
+        *{
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+            
+        }
+
+        body{
+            background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(16,16,37,1) 10%, rgba(0,212,255,1) 100%);
+
+        }
+
+        #coaniner{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* border: 2px solid red; */
+
+        }
+
+        .main{
+            width: 50%;
+            height: 50vh;
+            margin: 0 auto;
+            /* border: 2px solid red; */
+        }
+
+        .forms{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        #number{
+            width: 7em;
+            height: 27px;
+            text-align: center;
+        /* box-shadow: 5px 5px 5px solid black; */
+
+                }
+
+    #number:focus , #drop:focus{
+        outline: none;
+        box-shadow: 5px 4px 20px 6px #000000b8;
+    }
+
+
+     #drop{
+         width: 6em;
+         height: 27px;
+        
+     }
+        
+
+#btn {
+    margin-top: 20px;
+    margin-bottom: 10px;
+  align-items: center;
+  background-clip: padding-box;
+  background-color: #fa6400;
+  border: 1px solid transparent;
+  border-radius: .25rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 1.25;
+  min-height: 3rem;
+  padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+  position: relative;
+  text-decoration: none;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  width: auto;
+}
+
+
+#btn:focus {
+  background-color: #fb8332;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+}
+
+#btn:hover {
+  transform: translateY(-1px);
+}
+
+#btn:active {
+  background-color: #c85000;
+  box-shadow: rgba(0, 0, 0, .06) 0 2px 4px;
+  transform: translateY(0);
+}
+
+#ans{
+    font-size: 20px;
+}
+
+    </style>
+
+
+</head>
+<body>
+    <div id="coaniner">
+                <div class="main">
+                            <form action="" class="forms">
+
+                                <div>
+                                <input type="number" name="" id="number" placeholder="enter value" >
+                                <select name="" id="drop">
+                                    <option value="Celsius">Celsius</option>
+                                    <option value="Fahrenheit">Fahrenheit</option>
+
+                                </select>
+                            </div>
+                                <button type="submit" id="btn">convert ></button>
+                                
+                                <h4 id="ans">wating ans....</h4>
+                            </form>
+                </div>
+    </div>
+
+    <script>
+
+            let form = document.querySelector(".forms");
+            let num = document.getElementById("number");
+            let drop = document.getElementById("drop");
+            let ok = document.getElementById("btn");
+
+
+           ok.addEventListener("click" , ()=>{
+               event.preventDefault();
+               if(drop.value == "Fahrenheit" ){
+                    console.log("celsius to fahremheit ");
+                     let result = `${num.value} <sup>c</sup> = ${(num.value * 9/5) + 32} <sup>f</sup> `;
+                     let a=document.getElementById("ans").innerHTML=result;
+               }else if(drop.value == "Celsius"){
+                   console.log("fahremheit to Celsius")
+                   let result2 = `${num.value}<sup>f</sup> = ${ (num.value - 32) * 5/9 } <sup>c</sup> `;
+                   document.getElementById("ans").innerHTML=result2;
+               }
+        })
+
+
+    </script>
+
+
+</body>
+</html>
